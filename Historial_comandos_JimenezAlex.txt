@@ -1,0 +1,56 @@
+vagrant halt
+ssh-keygen
+cat $HOME/.ssh/*.pub
+cd
+mkdir reporgit
+cd reporgit
+git@github.com:alexjimenez20/TP_AySO.git
+cd TP_AySO
+git clone git@github.com:alexjimenez20/TP_AySO.git
+# 1. Entrar al repositorio clonado
+cd TP_AySO
+# 2. Resolver Punto 2 (Filtrar contraseña de ubuntu y agregar usuario logueado)
+grep -i "ubuntu" /etc/passwd | awk -F: '{print $2}' > datos_usuario.txt
+echo "Usuario=$(whoami)" >> datos_usuario.txt
+# 3. Inicializar tu firma de Git (Poné tu mail real si querés, si no dejalos así)
+git config --global user.email "alexjimenez@example.com"
+git config --global user.name "Alex Jimenez"
+# 4. Guardar y subir el primer ejercicio
+git add datos_usuario.txt
+git commit -m "ADD: agregado 1er ejercicio sobre datos_usuarios.txt"
+git push
+# 5. Resolver Punto 4 (Guardar información de la CPU)
+grep "model name" /proc/cpuinfo | head -n1 > info_pc.txt
+git add info_pc.txt
+git commit -m "feat: Añadiendo información de CPU"
+git push
+# 6. Resolver Punto 5 (Lista ordenada de usuarios)
+grep -v "nologin" /etc/passwd | head -n10 | sort -t: -k7 > lista_ordered
+mv lista_ordered lista_ordenada
+git add lista_ordenada
+git commit -m "ADD: Listado de usuarios ordenada"
+git push
+# 7. Resolver Punto 6 (Completar el README con tus datos de la UTN)
+# Cambiá "Tu-División" y "Tu-Turno" si querés antes de pegarlo
+cat <<EOF >> README.md
+Alumno: Alex Jimenez
+División: Tu-División
+Turno: Tu-Turno
+EOF
+
+git add README.md
+git commit -m "docs: Agregar información del alumno al README"
+git push
+# 8. Resolver Puntos 7 y 8 (Crear script automático y estructura de carpetas)
+cat <<'EOF' > script_dir.sh
+#!/bin/bash
+mkdir -p $HOME/TP1/{arquitectura/{Clase1,Clase2,Clase3,Clase4,Clase5},so/{Clase1,Clase2,Clase3,Clase4,Clase5,Clase6}}
+EOF
+
+chmod +x script_dir.sh
+./script_dir.sh
+git add script_dir.sh
+git commit -m "ADD: Añadiendo script"
+git push
+# 9. Resolver Punto 9 (Guardar el historial de comandos de forma relativa)
+history -a
