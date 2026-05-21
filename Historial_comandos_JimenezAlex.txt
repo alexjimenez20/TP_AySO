@@ -54,3 +54,20 @@ git commit -m "ADD: Añadiendo script"
 git push
 # 9. Resolver Punto 9 (Guardar el historial de comandos de forma relativa)
 history -a
+cp ../../.bash_history ./Historial_comandos_JimenezAlex.txt
+git add Historial_comandos_JimenezAlex.txt
+git commit -m "ADD: Historial de comandos final"
+git push 
+cat <<EOF > README.md
+# TP_AySO
+Repositorio para la materia Arquitectura y Sistemas Operativos - UTN Avellaneda.
+
+Alumno: Alex Jimenez
+División: 116
+Turno: Mañana
+EOF
+
+git add README.md
+git commit -m "docs: Actualizar división 116 y turno mañana en README"
+git push origin main
+history -a
