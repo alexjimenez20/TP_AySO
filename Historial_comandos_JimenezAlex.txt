@@ -1,0 +1,65 @@
+ssh-keygen
+cat $HOME/.ssh/*.pub
+ssh -T git@github.com
+cd
+mkdir repogit
+cd repogit
+git clone git@github.com:alexjimenez20/TP_AySO.git
+cd TP_AySO
+pwd
+ls -l
+man grep
+sudo grep VAGRANT /etc/shadow
+sudo grep vagrant /etc/shadow
+sudo grep -i Vagrant /etc/shadow
+sudo grep -i vagrant /etc/shadow | awk -F: '{print $2}' > pass_usuario.txt
+cat pass_usuario.txt
+whoami
+echo "Usuario=$(whoami)" >> pass_usuario.txt
+cat pass_usuario.txt
+git add 
+git add
+git add.
+git add .
+git config --global user.email "TUMAIL"
+git config --global user.email "aj518771@gmail.com"
+git config --global user.name "alexjimenez20"
+git commit -m "ADD: agregado 1er ejercicio sobre pass_usuario.txt"
+git status
+ls -la $HOME > permisos.txt
+echo 'ls -la $HOME' >> permisos.txt
+cat permisos.txt
+git add .
+git commit -m "ADD: Añadiendo archivo permisos"
+grep -v '^root' /etc/passwd | head -10 | cut -d: -f1 | sort > lista_ordenada
+cat lista_ordenada
+git add .
+git commit -m "ADD: Listado de usuarios ordenada"
+cat << EOF >> README.md
+Alumno: alex leonardo jimenez
+División: 111
+Turno: mañana
+EOF
+
+cat README.m
+cat README.md
+git checkout -- README.md
+echo "" >> README.md
+cat << EOF >> README.md
+Alumno: alex leonardo jimenez
+División: 111
+Turno: mañana
+EOF
+
+cat README.md
+git add .
+git commit -m "docs: agrego datos del alumno al README"
+mkdir -p ~/universidad/alumnos/legajos{1..15} ~/universidad/profesores/legajos{1..5}
+ls -R ~/universidad
+echo '#!/bin/bash' > script_dir.sh
+echo 'mkdir -p ~/universidad/alumnos/legajos{1..15} ~/universidad/profesores/legajos{1..5}' >> script_dir.sh
+cat script_dir.sh
+git add .
+git commit -m "ADD: Añadiendo script"
+git push
+history -a
